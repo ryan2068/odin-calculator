@@ -15,24 +15,56 @@ divide = (divide1, divide2) => {
 }
 console.log(subtract(4, 5))
 
-let displayNum1
+let displayVal1
 let calcOperator 
-let displayNum2  
+let displayVal2 
 
-operate = (displayNum1, calcOperator, displayNum2) => {
-    if (calcOperator === '+') {
-        return add(displayNum1, displayNum2)
+operate = (displayVal1, calcOperator, displayVal2) => {
+    if (calcOperator == '+') {
+        return add(displayVal1, displayVal2)
     }
 
-    if (calcOperator === '-') {
-        return subtract(displayNum1, displayNum2)
+    if (calcOperator == '-') {
+        return subtract(displayVal1, displayVal2)
     }
-    if (calcOperator === '*') {
-        return multiply(displayNum1, displayNum2)
+    if (calcOperator == '*') {
+        return multiply(displayVal1, displayVal2)
     }
-    if (calcOperator === '/') {
-        return divide(displayNum1, displayNum2)
+    if (calcOperator == '/') {
+        return divide(displayVal1, displayVal2)
     }
 
 }
 console.log(operate(3, '*', 4))
+
+
+displayVal1 = document.querySelector('#disp1')
+const btn = document.querySelectorAll('.btn')
+const operator = document.querySelectorAll('.operator')
+let previousValue 
+let nextValue
+
+btn.forEach(btns => {
+    btns.addEventListener('click', () => {
+        displayVal1.innerText += btns.innerText
+        previousValue = displayVal1.innerText
+        console.log(previousValue)
+        operator.forEach(operators => {
+            operators.addEventListener('click', () => {
+                operators = operators.innerText
+                console.log(operate(previousValue, operators, 3))
+            
+            
+            
+            })
+                
+        })
+    })
+});
+
+
+
+
+
+
+
