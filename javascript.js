@@ -39,8 +39,11 @@ console.log(operate(3, '*', 4))
 
 
 displayVal1 = document.querySelector('#disp1')
+calcOperator = document.querySelector('#divOperator')
+displayVal2 = document.querySelector('#disp2')
 const btn = document.querySelectorAll('.btn')
 const operator = document.querySelectorAll('.operator')
+const equals = document.querySelector('.equals')
 let previousValue 
 let nextValue
 
@@ -48,23 +51,29 @@ btn.forEach(btns => {
     btns.addEventListener('click', () => {
         displayVal1.innerText += btns.innerText
         previousValue = displayVal1.innerText
-        console.log(previousValue)
+        
+        console.log(` this is still prev value : ${previousValue}`)
+        
         operator.forEach(operators => {
             operators.addEventListener('click', () => {
-                operators = operators.innerText
-                console.log(operate(previousValue, operators, 3))
-            
-            
-            
+                calcOperator = operators.innerText
+                console.log(` this is operator value : ${previousValue}`)
             })
+        btns.addEventListener('click', () =>{
+            displayVal2.innerText = btns.innerText
+            nextValue = displayVal2.innerText
+            console.log(nextValue)
+            console.log(` this is still prev value : ${previousValue}`)
+        })
+            
+            
+            
                 
         })
+        
+    equals.addEventListener('click', () => {
+        
+        console.log(`${previousValue}, ${calcOperator}, ${nextValue}`)
+    })
     })
 });
-
-
-
-
-
-
-
